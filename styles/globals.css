@@ -1,0 +1,75 @@
+/* Satoshi Font */
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Satoshi", system-ui, sans-serif;
+  }
+
+  body {
+    @apply font-satoshi;
+  }
+}
+
+@layer components {
+  .container {
+    @apply w-full max-w-7xl mx-auto px-5;
+  }
+
+  .book-btn {
+    @apply bg-primary text-light px-6 py-3 rounded-full font-normal transition-all duration-300 hover:bg-[#0a7aad] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 text-base leading-[1.2em] tracking-normal;
+  }
+
+  .nav-link {
+    @apply relative font-normal text-dark hover:text-primary transition-colors duration-300 text-base leading-[1.2em] tracking-normal;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .feature-tag {
+    @apply flex items-center bg-white px-4 py-2 rounded-full shadow-sm font-normal text-base leading-[1.2em] tracking-normal;
+  }
+
+  .hero-title-highlight {
+    @apply text-primary relative;
+  }
+
+  .hero-title-highlight::after {
+    @apply content-[''] absolute -bottom-1 left-0 w-full h-2 bg-primary/20 -z-10;
+  }
+
+  /* Custom H1 styles */
+  .hero-h1 {
+    @apply font-satoshi font-normal leading-[1.1em] tracking-[-0.02em];
+  }
+
+  /* Paragraph and link base styles */
+  p,
+  a:not(.book-btn):not(.nav-link) {
+    @apply text-base leading-[1.2em] tracking-normal font-satoshi;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float ease-in-out infinite;
+  }
+}
